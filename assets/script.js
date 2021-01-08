@@ -63,7 +63,6 @@ var btn2= document.createElement("button"); //<button></button>
 btn2.setAttribute("class","userBtn"); //<button class="userBtn"></button>
 btn2.setAttribute("id","t test"); //<button class="userBtn" id="f"></button>
 btn2.setAttribute("onclick", "checkAns()")
-
 btn2.textContent="true";
 
 document.querySelector("#btnArea").appendChild(btn);
@@ -74,7 +73,19 @@ document.querySelector("#btnArea").appendChild(btn2);
 //timers starts
 //user picks choices, 
 
-
+//Questions loop for the game
+for (var i = 0; i < questions.lenght-1; i++) {
+    var answer = confirm(questions[i].q);
+    if(
+        (answer === true && questions[i].a === 't') ||
+        (answer === false && questions[i].a === 'f')
+    ){
+        score++;
+        alert('Correct!');
+    } else{
+        alert('Wrong!');
+    }
+}
 
 }
 
