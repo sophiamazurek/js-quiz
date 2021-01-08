@@ -1,0 +1,29 @@
+/* Refrence for button css https://www.w3schools.com/css/css3_buttons.asp */
+
+* {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align:center;
+}
+
+.userBtn, .startbutton{
+    background-color: lightskyblue;
+    color:black;
+    border-color:black;
+    height: 50px;
+    width: 15%;
+    font-weight: bold;
+}
+
+.savescore {
+    background-color: lightskyblue;
+    color: black;
+    border-color: black;
+    height: 45px; 
+    width: 15%;
+    font-weight: bold;
+}
+
+.instructions {
+    tent-align: center;
+   
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>JavaScript Quiz Master</title>
+</head>
+<body>
+    <!--Section for introduction of quiz-->
+   <div>
+        <h1 class="hello">Welsome to JavaScript Quiz Master</h1>
+        <p class="instructions" >In this quiz you will be asked six different true and false questions about basic JavaScript. 
+            If you answer them incorrectly then 10 seconds will be taken away from your time. You will have 60 seconds to answer all the questions.
+            Good luck!
+        </p>
+        <button id="button" class="startbutton" >Start Quiz</button>
+    </div>  
+    
+    <!--Question section-->
+    <div>
+        <h3 id="questionArea">questions text goes here</h3> <!--Questions need to appear here-->
+        <div id="btnArea"></div>
+        <!--if answer is correct appear here-->
+    </div>
+
+    <!--results of quiz go here-->
+    <h4 id="quizscore"></h4> 
+    <button id="savescore" class="savescore">Save Score</button>
+    <script type="text/javascript" src="assets/script.js"></script>
+</body>
+</html>
