@@ -1,6 +1,7 @@
 var startbtn = document.getElementById("startbtn");
 var quesitonareaDiv = document.getElementById("questionarea");
 var currentQuestionIndex = 0;
+var truebtn = document.querySelector("#truebtn");
 
 var startQuiz = function () {
     var question =document.getElementById("questionArea");
@@ -41,28 +42,36 @@ function clock() {
 //Display the start of the game with a score of zero
 var score = 0;
 
-let buttonsArray = document.querySelectorAll("buttons");
-buttonsArray.forEach(function (elem) {
-    elem.addEventListener("click", function () {
-        var question = document.getElementById("questionArea");
-        var answer = elm.id;
-        console.log(answer);
-        console.log(questions[currentQuestionIndex]);
+let buttonsArray = document.querySelector("#truebtn");
+trueBtn.addEventListener("click", function(){ console.log("you clicked true") } )
+    var question = document.getElementById("questionArea");
+    var answer = elm.id;
+    console.log(answer);
+    console.log(questions[currentQuestionIndex]);
 
-        for (var i = 0; i < questions.lenght-1; i++) {
-            var answer = confirm(questions[i].q);
-            if(
-                (answer === true && questions[i].a === 't') ||
-                (answer === false && questions[i].a === 'f')
-            ){
-                score++;
-                alert('Correct!');
-            } else{
-                alert('Wrong!');
-            }
-        }
-    });
-});
+    if (
+        (answer === "true" && questions[currentQuestionIndex].a === 't') ||
+        (answer === "false" && questions[currentQuestionIndex].a === 'f')
+    ) {
+
+        document.getElementById("answercorrect").innerHTML = "Correct!";
+        currentQuestionIndex++;
+    } else {
+        time -= 15;
+
+        document.getElementById("answercorrect").innerHTML = "Wrong!";
+        currentQuestionIndex++;
+    };
+    console.log("question: ", currentQuestionIndex)
+
+    if (currentQuestionIndex < questions.length) {
+
+        question.innerHTML = questions[currentQuestionIndex].q;
+    } else {
+        quizEnd()
+    }
+    
+;
 
 function quizEnd() {
     console.log("quizend:", time)
@@ -87,3 +96,6 @@ document.getElementById('highscoreInput').innerHTML = `
     <button id="saveScore" class="saveButton">Save Score</button>
     `
 var initialInputEl = document.getElementById("initialInput");
+
+startbtn.onclick = startQuiz;
+getScore();
