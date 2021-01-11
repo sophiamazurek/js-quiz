@@ -5,7 +5,7 @@
     text-align:center;
 }
 
-.userBtn, .startbutton{
+.buttons, .truebtn, .falsebtn, .startbtn {
     background-color: lightskyblue;
     color:black;
     border-color:black;
