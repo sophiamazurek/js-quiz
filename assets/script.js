@@ -127,10 +127,6 @@ var stopwatch =
 };
 
 
-document.querySelector("#stop").onclick= stopwatch.stop;
-document.querySelector("#reset").onclick= stopwatch.reset;
-document.querySelector("#go").onclick= stopwatch.start;
-document.querySelector("#losetime").onclick= stopwatch.losetime;
 
 function startQuiz() {
    
@@ -223,6 +219,7 @@ function checkAns(){
 }
 
 function gameOver(){
+    stopwatch.stop();
   
     document.querySelector(".questionarea").style.display = "none";
     document.querySelector("#highscoreInput").style.display = "block";
@@ -299,14 +296,27 @@ var score = 0;
 //     // }
     
 // });
-function quizEnd() {
-    console.log("quizend:", time)
-    quesitonareaDiv.innerHTML = ""
-    clearInterval(timer);
-    timerEL.textContent = time;
-    document.getElementById('quizscore').innerHTML = 'Score' + time;
-};
+// function quizEnd() {
+//     console.log("quizend:", time)
+//     quesitonareaDiv.innerHTML = ""
+//     clearInterval(timer);
+//     timerEL.textContent = time;
+//     document.getElementById('quizscore').innerHTML = 'Score' + time;
+// };
 
+document.querySelector("#savescore").onclick = function(){
+    
+    //grab users name
+    console.log(document.querySelector("#initialInput").value)
+    //get user's score
+    console.log(stopwatch.time)
+    // var score={
+    //     name: text
+    //     score: stopwatch.time
+    // }
+    //set to local storage
+    localStorage.setItem("name", "score");
+}
 function getHighScore() {
     console.log ("All the scores: ", localStorage)
 }
@@ -315,11 +325,10 @@ function getScore(forwho) {
     return localStorage.getItem(forwho)
 }
 
-//Refrence: https://github.com/alirueter/code-quiz 
+
 document.getElementById('highscoreInput').innerHTML = ` 
     Enter your name:
     <input type="text" id="initialInput"></input>
-    <button id="saveScore" class="saveButton">Save Score</button>
     `
 var initialInputEl = document.getElementById("initialInput");
 
