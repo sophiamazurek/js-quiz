@@ -3,6 +3,10 @@ var quesitonareaDiv = document.getElementById("questionarea");
 var index = 0;
 var truebtn = document.querySelector("#truebtn");
 
+document.querySelector(".questionarea").style.display = "none";
+document.querySelector("#highscoreInput").style.display = "none";
+document.querySelector("#savescore").style.display = "none";
+
 function startQuiz() {
    
     timer = setInterval(clock, 1000);
@@ -13,6 +17,7 @@ function startQuiz() {
 }
 
 function displayCard(){
+    document.querySelector(".questionarea").style.display = "block";
     //when the game ends wrt the array
     //questions.length-1
     //index
@@ -91,6 +96,10 @@ function checkAns(){
 
 function gameOver(){
     alert("game over");
+    document.querySelector(".questionarea").style.display = "none";
+    document.querySelector("#highscoreInput").style.display = "block";
+    document.querySelector("#savescore").style.display = "block";
+    document.querySelector(".startbtn").style.display = "none";
     //display enter your name area
     //get userinput and their score (time) and store to local storage
     //trick is to store in an array of object (when you store into local storage it needs to be a string (stringify()))
